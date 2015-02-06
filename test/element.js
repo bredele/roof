@@ -40,11 +40,20 @@ describe('append', function() {
 	// we should test children as well
 	
 	it('should append multiple element', function() {
-		var link = new Element('a');
+		var link = new Element('div');
 		var first = new Element('span');
 		var second = new Element('span');
 		link.appendChild(first);
 		link.appendChild(second);
-		assert.equal(link.render(), '<a><span></span><span></span></a>');
+		assert.equal(link.render(), '<div><span></span><span></span></div>');
+	});
+
+	it('should append nested elements', function() {
+		var link = new Element('div');
+		var first = new Element('a');
+		var second = new Element('span');
+		link.appendChild(first);
+		first.appendChild(second);
+		assert.equal(link.render(), '<div><a><span></span></a></div>');
 	});
 });
