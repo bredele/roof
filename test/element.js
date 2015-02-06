@@ -30,22 +30,14 @@ describe("create", function() {
 
 describe('append', function() {
 
-	describe("one element", function() {
-
-		var link, btn;
-
-		beforeEach(function() {
-			link = new Element('a');
-			btn = new Element('button');
-		});
-		
-		it('should append an other element', function() {
-
-			link.appendChild(btn);
-			assert.equal(link.render(), '<a><button></button></a>');
-		});
-		
+	it('should append an other element', function() {
+		var link = new Element('a');
+		var btn = new Element('button');
+		link.appendChild(btn);
+		assert.equal(link.render(), '<a><button></button></a>');
 	});
+
+	// we should test children as well
 	
 
 });
