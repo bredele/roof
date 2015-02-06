@@ -19,9 +19,33 @@ describe("create", function() {
 		assert.equal(btn.render(), '<button></button>');
 	});
 
-	it('should set innerHTML', function() {
-
-	});
+	// it('should set innerHTML', function() {
+	// 	var btn = new Element('button');
+	// 	btn.innerHTML = 'something';
+	// 	assert.equal(btn.render(), '<button>something</button>');
+	// });
 
 });
 
+
+describe('append', function() {
+
+	describe("one element", function() {
+
+		var link, btn;
+
+		beforeEach(function() {
+			link = new Element('a');
+			btn = new Element('button');
+		});
+		
+		it('should append an other element', function() {
+
+			link.appendChild(btn);
+			assert.equal(link.render(), '<a><button></button></a>');
+		});
+		
+	});
+	
+
+});
