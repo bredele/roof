@@ -39,16 +39,20 @@ describe("grout", function() {
   });
 
   it('should update node values', function() {
-    var fn = dom('button', '${label}');
+    var fn = dom('button', {
+      class: '${type}'
+    }, '${label}');
     var el = fn({
+      type: 'btn',
       label: 'hello world'
     });
-    assert.equal(el.render(), '<button>hello world</button>');
+    assert.equal(el.render(), '<button class="btn">hello world</button>');
 
     fn({
+      type: 'other',
       label: 'github'
     });
-    assert.equal(el.render(), '<button>github</button>');
+    assert.equal(el.render(), '<button class="other">github</button>');
   });
   
 });
