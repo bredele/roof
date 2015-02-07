@@ -30,5 +30,12 @@ describe("grout", function() {
 		})();
 		assert.equal(el.render(), '<button id="btn" class="dark"></button>');
 	});
+
+	it('should interpolate variables', function() {
+		var el = dom('button', '${label}')({
+			label: 'hello world'
+		});
+		assert.equal(el.render(), '<button>hello world</button>');
+	});
 	
 });
