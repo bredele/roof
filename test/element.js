@@ -60,9 +60,16 @@ describe('append child', function() {
 
 describe('set attribute', function() {
 	
-	it('should set attribute', function() {
+	it('should set one attribute', function() {
 		var link = new Element('div');
 		link.setAttribute('class', 'test');
 		assert.equal(link.render(), '<div class="test"></div>');
+	});
+
+	it('should set multiple attributes', function() {
+		var link = new Element('a');
+		link.setAttribute('class', 'test');
+		link.setAttribute('id', 'link');
+		assert.equal(link.render(), '<a class="test" id="link"></a>');
 	});
 });
