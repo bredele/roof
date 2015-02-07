@@ -9,7 +9,7 @@ It is a partial implementation of DOM and doesn't follow any standards. It is ju
 
 However any pull request is welcome to make of roof a fast an accurate DOM implementation.
 
-<-- todo api element, attribute, etc -->
+<!-- todo api element, attribute, etc -->
 
 
 ## License
