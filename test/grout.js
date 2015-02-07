@@ -22,4 +22,13 @@ describe("grout", function() {
 		])();
 		assert.equal(el.render(), '<ul>hello<li>world</li></ul>');
 	});
+
+	it("should set attributes", function() {
+		var el = dom('button', {
+			id: 'btn',
+			class: 'dark'
+		})();
+		assert.equal(el.render(), '<button id="btn" class="dark"></button>');
+	});
+	
 });
