@@ -4,6 +4,8 @@
  */
 
 var Element = require('../lib/element');
+var Attribute = require('../lib/attribute');
+var Text = require('../lib/text');
 var assert = require('assert');
 
 
@@ -66,10 +68,30 @@ describe('set attribute', function() {
 		assert.equal(link.render(), '<div class="test"></div>');
 	});
 
+	it('should set one attribute multiple times', function() {
+		var link = new Element('div');
+		link.setAttribute('class', 'test');
+		link.setAttribute('class', 'other');
+		assert.equal(link.render(), '<div class="other"></div>');
+	});
+
 	it('should set multiple attributes', function() {
 		var link = new Element('a');
 		link.setAttribute('class', 'test');
 		link.setAttribute('id', 'link');
 		assert.equal(link.render(), '<a class="test" id="link"></a>');
 	});
+
+	it("set attribute named item", function() {
+		var link = new Element('a');
+		
+		var id = new Attribute('id');
+		id.appendChild(new Text('link'));
+
+		link.attributes.setNamedItem(id);
+		assert.equal(link.render(), '<a id="link"></a>');
+
+	});
+
 });
+
