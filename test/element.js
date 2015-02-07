@@ -28,7 +28,7 @@ describe("create", function() {
 });
 
 
-describe('append', function() {
+describe('append child', function() {
 
 	it('should append an other element', function() {
 		var link = new Element('a');
@@ -57,3 +57,12 @@ describe('append', function() {
 		assert.equal(link.render(), '<div><a><span></span></a></div>');
 	});
 });
+
+// describe('set attribute', function() {
+	
+// 	it('should set attribute', function() {
+// 		var link = new Element('div');
+// 		link.setAttribute('class', 'test');
+// 		assert.equal(link.render(), '<div class="test"></div>');
+// 	});
+// });
