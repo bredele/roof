@@ -21,6 +21,7 @@
   "homepage": "https://github.com/bredele/roof",
   "devDependencies": {
     "mocha": "^2.1.0",
-    "grout": "git://github.com/bredele/grout"
+    "grout": "git://github.com/bredele/grout",
+    "domparser": "git://github.com/bredele/domparser"
   }
 }

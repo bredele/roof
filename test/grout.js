@@ -36,6 +36,7 @@ describe("grout", function() {
 			label: 'hello world'
 		});
 		assert.equal(el.render(), '<button>hello world</button>');
+		
 	});
 	
 });
