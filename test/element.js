@@ -58,11 +58,11 @@ describe('append child', function() {
 	});
 });
 
-// describe('set attribute', function() {
+describe('set attribute', function() {
 	
-// 	it('should set attribute', function() {
-// 		var link = new Element('div');
-// 		link.setAttribute('class', 'test');
-// 		assert.equal(link.render(), '<div class="test"></div>');
-// 	});
-// });
+	it('should set attribute', function() {
+		var link = new Element('div');
+		link.setAttribute('class', 'test');
+		assert.equal(link.render(), '<div class="test"></div>');
+	});
+});
