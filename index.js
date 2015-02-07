@@ -12,7 +12,7 @@ var Text = require('./lib/text');
  * @type {Object}
  */
 
-global.document = {
+ global.document = module.exports = {
 
 	/**
 	 * Create Element.
