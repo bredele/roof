@@ -17,10 +17,17 @@ describe("node", function() {
 
     it('should append an other node', function() {
       var node = new Node(1);
-      node.appendChild(new Node(2));
+      node.appendChild(new Node(3));
 
       assert.equal(node.childNodes.length, 1);
-      assert.equal(node.childNodes[0].nodeType, 2);
+      assert.equal(node.childNodes[0].nodeType, 3);
+    });
+
+    it('shoud set parent node', function() {
+      var node = new Node(1);
+      var child = node.appendChild(new Node(3));
+
+      assert.deepEqual(node, child.parentNode);
     });
 
   });
