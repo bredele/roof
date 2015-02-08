@@ -21,6 +21,11 @@ describe("create", function() {
     assert.equal(btn.render(), '<button></button>');
   });
 
+  it('should return node type 1', function() {
+    var div = new Element('div');
+    assert.equal(div.nodeType, 1);
+  });
+
   // it('should set innerHTML', function() {
   //  var btn = new Element('button');
   //  btn.innerHTML = 'something';
