@@ -15,6 +15,11 @@ describe("create attribute", function() {
     assert.equal(name.render(), 'name=""');
   });
 
+  it('should return node type 2', function() {
+  	var name = new Attribute('name');
+  	assert.equal(name.nodeType, 2);
+  });
+
 });
 
 
