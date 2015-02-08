@@ -100,3 +100,14 @@ describe('set attribute', function() {
 
 });
 
+describe("child nodes", function() {
+  
+  it('should return first child', function() {
+    var div = new Element('div');
+    div.appendChild(new Text('hello world!'));
+    div.appendChild(new Element('button'));
+
+    assert.equal(div.firstChild.render(), 'hello world!');
+  });
+});
+
