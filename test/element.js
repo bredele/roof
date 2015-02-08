@@ -109,5 +109,14 @@ describe("child nodes", function() {
 
     assert.equal(div.firstChild.render(), 'hello world!');
   });
+
+  it('should get the next sibling element', function () {
+    var div = new Element('div');
+    div.appendChild(new Text('hello world!'));
+    div.appendChild(new Element('button'));
+
+    var child = div.firstChild;
+    assert.equal(child.nextSibling.localName, 'button');
+  });
 });
 
