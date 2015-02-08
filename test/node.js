@@ -40,6 +40,14 @@ describe("node", function() {
 
       assert.deepEqual(node.firstChild, child);
     });
+
+    it('should return next sibling', function() {
+      var node = new Node(1);
+      var child = node.appendChild(new Node(3));
+      var sibling = node.appendChild(new Node(3));
+
+      assert.deepEqual(node.firstChild.nextSibling, sibling);
+    });
     
   });
   
