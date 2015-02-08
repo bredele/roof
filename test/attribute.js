@@ -12,6 +12,7 @@ describe("create attribute", function() {
 
   it('should create an attribute', function() {
     var name = new Attribute('name');
+    console.log(name.render());
     assert.equal(name.render(), 'name=""');
   });
 
