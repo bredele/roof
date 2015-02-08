@@ -32,4 +32,16 @@ describe("node", function() {
 
   });
 
+  describe("child nodes", function() {
+
+    it("should return first child", function() {
+      var node = new Node(1);
+      var child = node.appendChild(new Node(3));
+
+      assert.deepEqual(node.firstChild, child);
+    });
+    
+  });
+  
+
 });
