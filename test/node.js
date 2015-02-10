@@ -48,6 +48,25 @@ describe("node", function() {
 
       assert.deepEqual(node.firstChild.nextSibling, sibling);
     });
+
+    describe("replace child", function() {
+
+      var node, first, second;
+      beforeEach(function() {
+        node = new Node(1);
+        first = node.appendChild(new Node(3));
+        second = node.appendChild(new Node(3));
+      });
+      
+
+      it('should replace node', function() {
+        var third = new Node(3);
+        node.replaceChild(third, first);
+
+        assert.equal(node.childNodes[0], third);
+      });
+      
+    });
     
   });
   
