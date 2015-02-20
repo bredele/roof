@@ -100,6 +100,18 @@ describe('set attribute', function() {
 
 });
 
+describe("get attribute", function() {
+
+  it("should get attribute value", function() {
+    var link = new Element('a');
+    link.setAttribute('class', 'link');
+
+    assert.equal(link.getAttribute('class'), 'link');
+  });
+  
+});
+
+
 describe("child nodes", function() {
   
   it('should return first child', function() {
