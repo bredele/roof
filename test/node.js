@@ -6,6 +6,12 @@
 var Node = require('../lib/node');
 var assert = require('assert');
 
+/**
+ * This is a partial implementation
+ * of node and does not follow the official
+ * standard.
+ */
+
 describe("node", function() {
   
   it('should create node with type', function() {
@@ -34,21 +40,35 @@ describe("node", function() {
 
   describe("child nodes", function() {
 
-    it("should return first child", function() {
-      var node = new Node(1);
-      var child = node.appendChild(new Node(3));
+    describe("first child", function() {
 
-      assert.deepEqual(node.firstChild, child);
+      it("should return first child", function() {
+        var node = new Node(1);
+        var child = node.appendChild(new Node(3));
+
+        assert.deepEqual(node.firstChild, child);
+      });
+
     });
 
-    it('should return next sibling', function() {
-      var node = new Node(1);
-      var child = node.appendChild(new Node(3));
-      var sibling = node.appendChild(new Node(3));
+    describe("next sibling", function() {
 
-      assert.deepEqual(node.firstChild.nextSibling, sibling);
+      it('should return next sibling', function() {
+        var node = new Node(1);
+        var child = node.appendChild(new Node(3));
+        var sibling = node.appendChild(new Node(3));
+
+        assert.deepEqual(node.firstChild.nextSibling, sibling);
+      });
+
     });
 
+    /**
+     * Replace child.
+     * The official standard only works for elements (type 1) or
+     * attributes (type 2) and trigger exceptions otherwise.
+     */
+    
     describe("replace child", function() {
 
       var node, first, second;
@@ -58,7 +78,6 @@ describe("node", function() {
         second = node.appendChild(new Node(3));
       });
       
-
       it('should replace node', function() {
         var third = new Node(3);
         node.replaceChild(third, first);

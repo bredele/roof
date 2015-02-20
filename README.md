@@ -11,6 +11,17 @@ However any pull request is welcome to make of roof a fast an accurate DOM imple
 
 <!-- todo api element, attribute, etc -->
 
+<!-- 
+### Element
+
+`roof` exposes an object `document` in the nodejs global scope.
+
+```js
+require('roof');
+var div = document.createElement('div');
+``` -->
+
+
 
 ## License
 
