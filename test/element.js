@@ -108,6 +108,11 @@ describe("get attribute", function() {
 
     assert.equal(link.getAttribute('class'), 'link');
   });
+
+  it('should return undefined if attribute does not exist', function() {
+    var link = new Element('a');
+    assert(!link.getAttribute('class'));
+  });
   
 });
 
