@@ -137,3 +137,12 @@ describe("child nodes", function() {
   });
 });
 
+describe("innerHTML", function() {
+  
+  it('should set text as inner html', function() {
+    var div = new Element('div');
+    div.innerHTML = 'hello';
+    assert.equal(div.render(), '<div>hello</div>')
+  });
+});
+
