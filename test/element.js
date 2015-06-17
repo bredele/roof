@@ -156,8 +156,13 @@ describe("innerHTML", function() {
       var div = new Element('div');
       div.innerHTML = '<button>hello</button>';
       assert.equal(div.render(), '<div><button>hello</button></div>');
-
       assert.equal(div.firstChild.localName, 'button');
+  });
+
+  it('should work with complex html', function() {
+    var div = new Element('div');
+    div.innerHTML = '<button>hello <br> <span>Helloo <input /></span></button>';
+    assert.equal(div.render(), '<div><button>hello <br/> <span>Helloo <input/></span></button></div>');
   });
 });
 
