@@ -142,7 +142,14 @@ describe("innerHTML", function() {
   it('should set text as inner html', function() {
     var div = new Element('div');
     div.innerHTML = 'hello';
-    assert.equal(div.render(), '<div>hello</div>')
+    assert.equal(div.render(), '<div>hello</div>');
+  });
+
+  it('should set simple html as inner HTML', function() {
+      var div = new Element('div');
+      div.innerHTML = '<button>hello</button>';
+      assert.equal(div.render(), '<div><button>hello</button></div>');
+      assert.equal(div.firstChild.localName, 'button');
   });
 });
 
