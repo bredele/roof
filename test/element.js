@@ -166,3 +166,14 @@ describe("innerHTML", function() {
   });
 });
 
+describe('insertAdjacentHTML', function() {
+
+  it('should insert before end / append', function() {
+    var div = new Element('div');
+    div.innerHTML = '<button>hello</button>';
+    div.insertAdjacentHTML('beforeend', '<span>world</span>');
+
+    assert.equal(div.innerHTML, '<div><button>hello</button><span>world</span></div>');
+  });
+});
+
