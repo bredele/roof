@@ -145,6 +145,7 @@ describe("innerHTML", function() {
     assert.equal(div.outerHTML, '<div>hello</div>');
   });
 
+
   it('should return innerHTML', function() {
     var div = new Element('div');
     div.appendChild(new Element('span'));
@@ -161,8 +162,8 @@ describe("innerHTML", function() {
 
   it('should work with complex html', function() {
     var div = new Element('div');
-    div.innerHTML = '<button>hello <br> <span>Helloo <input /></span></button>';
-    assert.equal(div.innerHTML, '<button>hello <br/> <span>Helloo <input/></span></button>');
+    div.innerHTML = '<button class="btn">hello <br> <span>Helloo <input /></span></button>';
+    assert.equal(div.innerHTML, '<button class="btn">hello <br/> <span>Helloo <input/></span></button>');
   });
 });
 
