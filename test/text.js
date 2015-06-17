@@ -11,7 +11,7 @@ describe("create text", function() {
 
 	it('should create an attribute', function() {
 		var text = new Text('hello world');
-		assert.equal(text.render(), 'hello world');
+		assert.equal(text.outerHTML, 'hello world');
 	});
 
 	it('should return node type 3', function() {

@@ -13,12 +13,12 @@ describe("create", function() {
 
   it('should create a div', function() {
     var div = new Element('div');
-    assert.equal(div.render(), '<div></div>');
+    assert.equal(div.outerHTML, '<div></div>');
   });
 
   it('should create any element', function() {
     var btn = new Element('button');
-    assert.equal(btn.render(), '<button></button>');
+    assert.equal(btn.outerHTML, '<button></button>');
   });
 
   it('should return node type 1', function() {
@@ -29,7 +29,7 @@ describe("create", function() {
   // it('should set innerHTML', function() {
   //  var btn = new Element('button');
   //  btn.innerHTML = 'something';
-  //  assert.equal(btn.render(), '<button>something</button>');
+  //  assert.equal(btn.outerHTML, '<button>something</button>');
   // });
 
 });
@@ -41,7 +41,7 @@ describe('append child', function() {
     var link = new Element('a');
     var btn = new Element('button');
     link.appendChild(btn);
-    assert.equal(link.render(), '<a><button></button></a>');
+    assert.equal(link.outerHTML, '<a><button></button></a>');
   });
 
   // we should test children as well
@@ -52,7 +52,7 @@ describe('append child', function() {
     var second = new Element('span');
     link.appendChild(first);
     link.appendChild(second);
-    assert.equal(link.render(), '<div><span></span><span></span></div>');
+    assert.equal(link.outerHTML, '<div><span></span><span></span></div>');
   });
 
   it('should append nested elements', function() {
@@ -61,7 +61,7 @@ describe('append child', function() {
     var second = new Element('span');
     link.appendChild(first);
     first.appendChild(second);
-    assert.equal(link.render(), '<div><a><span></span></a></div>');
+    assert.equal(link.outerHTML, '<div><a><span></span></a></div>');
   });
 });
 
@@ -70,21 +70,21 @@ describe('set attribute', function() {
   it('should set one attribute', function() {
     var link = new Element('div');
     link.setAttribute('class', 'test');
-    assert.equal(link.render(), '<div class="test"></div>');
+    assert.equal(link.outerHTML, '<div class="test"></div>');
   });
 
   it('should set one attribute multiple times', function() {
     var link = new Element('div');
     link.setAttribute('class', 'test');
     link.setAttribute('class', 'other');
-    assert.equal(link.render(), '<div class="other"></div>');
+    assert.equal(link.outerHTML, '<div class="other"></div>');
   });
 
   it('should set multiple attributes', function() {
     var link = new Element('a');
     link.setAttribute('class', 'test');
     link.setAttribute('id', 'link');
-    assert.equal(link.render(), '<a class="test" id="link"></a>');
+    assert.equal(link.outerHTML, '<a class="test" id="link"></a>');
   });
 
   it("set attribute named item", function() {
@@ -94,7 +94,7 @@ describe('set attribute', function() {
     id.appendChild(new Text('link'));
 
     link.attributes.setNamedItem(id);
-    assert.equal(link.render(), '<a id="link"></a>');
+    assert.equal(link.outerHTML, '<a id="link"></a>');
 
   });
 
@@ -124,7 +124,7 @@ describe("child nodes", function() {
     div.appendChild(new Text('hello world!'));
     div.appendChild(new Element('button'));
 
-    assert.equal(div.firstChild.render(), 'hello world!');
+    assert.equal(div.firstChild.outerHTML, 'hello world!');
   });
 
   it('should get the next sibling element', function () {
@@ -142,27 +142,27 @@ describe("innerHTML", function() {
   it('should set text as inner html', function() {
     var div = new Element('div');
     div.innerHTML = 'hello';
-    assert.equal(div.render(), '<div>hello</div>');
+    assert.equal(div.outerHTML, '<div>hello</div>');
   });
 
   it('should return innerHTML', function() {
     var div = new Element('div');
     div.appendChild(new Element('span'));
     div.appendChild(new Element('span'));
-    assert.equal(div.innerHTML, '<div><span></span><span></span></div>')
+    assert.equal(div.innerHTML, '<span></span><span></span>');
   });
 
   it('should set simple html as inner HTML', function() {
       var div = new Element('div');
       div.innerHTML = '<button>hello</button>';
-      assert.equal(div.render(), '<div><button>hello</button></div>');
+      assert.equal(div.outerHTML, '<div><button>hello</button></div>');
       assert.equal(div.firstChild.localName, 'button');
   });
 
   it('should work with complex html', function() {
     var div = new Element('div');
     div.innerHTML = '<button>hello <br> <span>Helloo <input /></span></button>';
-    assert.equal(div.innerHTML, '<div><button>hello <br/> <span>Helloo <input/></span></button></div>');
+    assert.equal(div.innerHTML, '<button>hello <br/> <span>Helloo <input/></span></button>');
   });
 });
 
@@ -173,7 +173,7 @@ describe('insertAdjacentHTML', function() {
     div.innerHTML = '<button>hello</button>';
     div.insertAdjacentHTML('beforeend', '<span>world</span>');
 
-    assert.equal(div.innerHTML, '<div><button>hello</button><span>world</span></div>');
+    assert.equal(div.innerHTML, '<button>hello</button><span>world</span>');
   });
 });
 

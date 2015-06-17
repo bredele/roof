@@ -26,7 +26,7 @@ describe("document", function() {
     btn.setAttribute('class', 'test');
     btn.appendChild(document.createTextNode('olivier'));
 
-    assert.equal(btn.render(), '<button class="test">olivier</button>');
+    assert.equal(btn.outerHTML, '<button class="test">olivier</button>');
   });
   
   
