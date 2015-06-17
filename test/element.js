@@ -145,10 +145,18 @@ describe("innerHTML", function() {
     assert.equal(div.render(), '<div>hello</div>');
   });
 
+  it('should return innerHTML', function() {
+    var div = new Element('div');
+    div.appendChild(new Element('span'));
+    div.appendChild(new Element('span'));
+    assert.equal(div.innerHTML, '<div><span></span><span></span></div>')
+  });
+
   it('should set simple html as inner HTML', function() {
       var div = new Element('div');
       div.innerHTML = '<button>hello</button>';
       assert.equal(div.render(), '<div><button>hello</button></div>');
+
       assert.equal(div.firstChild.localName, 'button');
   });
 });
